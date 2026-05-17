@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#5f5e5e",
+                    "on-primary-fixed-variant": "#474746",
+                    "on-tertiary-container": "#a17f3b",
+                    "on-secondary-container": "#716252",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#d7c3b0",
+                    "inverse-primary": "#c8c6c5",
+                    "primary-fixed": "#e5e2e1",
+                    "on-tertiary-fixed": "#261900",
+                    "on-secondary-fixed-variant": "#524436",
+                    "secondary": "#6b5c4c",
+                    "inverse-on-surface": "#f1f1f1",
+                    "surface-bright": "#f9f9f9",
+                    "on-surface-variant": "#444748",
+                    "background": "#f9f9f9",
+                    "surface-dim": "#dadada",
+                    "primary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#f4dfcb",
+                    "outline-variant": "#c4c7c7",
+                    "on-secondary-fixed": "#241a0e",
+                    "tertiary": "#000000",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#f4dfcb",
+                    "tertiary-fixed": "#ffdea5",
+                    "on-surface": "#1a1c1c",
+                    "on-primary": "#ffffff",
+                    "surface": "#f9f9f9",
+                    "surface-container-highest": "#e2e2e2",
+                    "outline": "#747878",
+                    "on-background": "#1a1c1c",
+                    "tertiary-container": "#261900",
+                    "surface-container-low": "#f3f3f3",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-fixed-variant": "#5d4201",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#e9c176",
+                    "surface-container-high": "#e8e8e8",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-primary-container": "#858383",
+                    "inverse-surface": "#2f3131",
+                    "on-error": "#ffffff",
+                    "primary-container": "#1c1b1b",
+                    "on-primary-fixed": "#1c1b1b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1440px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "bento-gap": "16px",
+                    "margin-mobile": "16px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Bodoni Moda"],
+                    "body-md": ["Montserrat"],
+                    "headline-lg": ["Bodoni Moda"],
+                    "body-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Bodoni Moda"],
+                    "display-lg": ["Bodoni Moda"],
+                    "label-caps": ["Montserrat"],
+                    "button-text": ["Montserrat"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "button-text": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .bento-item:hover .overlay-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .overlay-text {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease-out;
+        }
+    
+        /* Premium Varanasi Modern Alignment Fixes */
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .aspect-\[3\/4\] {
+            aspect-ratio: 3/4 !important;
+        }
+        .aspect-\[4\/3\] {
+            aspect-ratio: 4/3 !important;
+        }
+        .aspect-\[16\/9\] {
+            aspect-ratio: 16/9 !important;
+        }
+        /* Make sure search button is always accessible */
+        .search-modal-trigger {
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+
+        /* Premium Varanasi Modern Alignment Fixes */
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .aspect-\[3\/4\] {
+            aspect-ratio: 3/4 !important;
+        }
+        .aspect-\[4\/3\] {
+            aspect-ratio: 4/3 !important;
+        }
+        .aspect-\[16\/9\] {
+            aspect-ratio: 16/9 !important;
+        }
+        .search-modal-trigger {
+            background: transparent !important;
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+        }
+        
+</style>
+<link rel="stylesheet" href="transition.css">
+<script src="transition.js" defer></script>
+<script src="boutique_core.js" defer></script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<div id="page-transition-overlay">
+    <div class="transition-logo">VARANASI MODERN</div>
+    <div class="transition-loader"></div>
+</div>
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-outline-variant/10 dark:border-outline-variant/20 h-20">
+<nav class="flex justify-between items-center w-full px-margin-desktop h-full max-w-container-max mx-auto">
+<div class="flex-1 flex items-center gap-8">
+<a class="font-headline-md text-headline-md font-bold tracking-tight text-primary dark:text-primary-fixed uppercase" href="#">VARANASI MODERN</a>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-on-surface-variant dark:text-surface-variant font-label-caps text-label-caps hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="index.html#new-arrivals">New Arrivals</a>
+<a class="text-primary dark:text-primary-fixed border-b border-primary dark:border-primary-fixed pb-1 font-label-caps text-label-caps" href="shop.html">Collections</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-caps text-label-caps hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Streetwear</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-caps text-label-caps hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Ethnic</a>
+<a class="text-on-surface-variant dark:text-surface-variant font-label-caps text-label-caps hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300" href="#">Craft</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer" data-icon="search">search</span>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer" data-icon="favorite">favorite</span>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer" data-icon="shopping_bag">shopping_bag</span>
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed cursor-pointer" data-icon="person">person</span>
+</div>
+</nav>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-16">
+<!-- Hero Section -->
+<section class="mb-20 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between border-b border-outline-variant/20 pb-12">
+<div class="max-w-2xl">
+<h1 class="font-display-lg text-display-lg text-primary mb-6">The Kashi <br/>Edit.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">A visual narrative exploring the convergence of ancient weaving traditions and the raw energy of modern Indian streetwear. Captured through the lens of cinematic luxury.</p>
+</div>
+<div class="mt-8 md:mt-0">
+<button class="bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps tracking-widest hover:bg-on-primary-container transition-all duration-300 uppercase">View Lookbook 2024</button>
+</div>
+</section>
+<!-- Bento Gallery Grid -->
+<section class="grid grid-cols-1 md:grid-cols-12 auto-rows-[250px] gap-bento-gap">
+<!-- Large Main Portrait -->
+<div class="md:col-span-6 md:row-span-3 relative group overflow-hidden bento-item bg-surface-container">
+<img alt="Main Look" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A high-fashion editorial portrait of a male model wearing a contemporary oversized silk jacket with traditional Banarasi brocade patterns. He stands against a weathered, golden-hour stone wall in Varanasi. The lighting is dramatic and warm, highlighting the intricate gold embroidery against a matte black base. The overall aesthetic is cinematic and ultra-premium, blending heritage with modern streetwear silhouettes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqL92OYtjtjRfazT1F-9ksQp7Wsov_EYOy62aCzz6Uu3TAn5ufIS-DkPN98KCRVhZirNqzm_4S8vh1SfWi2J8z6Yp1_VG9aKI-EWWvusJauvog9SAeLzVizoOkbpRXCHYaOaYenTYJPAO_8xzYdR9oc9GTyA0ZLHycD7UQ6LLUk9gjrAkn61wamd-ZO2ujjjME7aqr7uKxMFs_qqccf_4ejVDOCzcCtF8gKbM4V-T2jnLZMEGZh0B8Mes3p9MDBN_SwAReFLC6Kk9U"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
+<div class="overlay-text text-center text-on-primary">
+<span class="font-label-caps text-label-caps tracking-widest block mb-2">LOOK 01</span>
+<h3 class="font-headline-md text-headline-md italic mb-4">Midnight Brocade</h3>
+<a class="inline-block border-b border-on-primary pb-1 font-label-caps text-[10px] tracking-widest" href="#">EXPLORE PIECE</a>
+</div>
+</div>
+</div>
+<!-- Texture Detail Close-up -->
+<div class="md:col-span-3 md:row-span-2 relative group overflow-hidden bento-item bg-surface-container">
+<img alt="Fabric Detail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An extreme macro close-up of luxurious hand-woven Banarasi silk fabric featuring a geometric gold zari pattern. The light catches the metallic threads, creating a shimmering effect against a deep crimson background. The texture is palpable and rich, emphasizing the extreme craftsmanship of the artisan. The lighting is soft and directional, creating deep shadows in the weave." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWUnJchph0Kb-iA5HAMhYxZGcPAVgMECUaOdLHkVNvcnzxpavgS19Z8h6iUMWPOPZMEFBXVX99boa4Jc2VgRczbnnU0N0MTYWumUmAt20BowvUIkJM6hNbadLMogiPlkztV2rzrHIzoQbD7JLt4I9fiEzjIxtgHtegoAtnyCqPF_1vEVakA5Mt_8FwUTx8FGwmCpr5P6yUNMlebJuEsl7Rrfe91QUs9FW5KbPDHMMEu7tLzGzoH0Mf0Nj2fuPLnX1n54ONVGDcciLY"/>
+<div class="absolute inset-0 bg-surface-container-highest/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8 backdrop-blur-sm">
+<div class="overlay-text">
+<h4 class="font-label-caps text-label-caps text-primary">THE CRAFT</h4>
+<p class="font-body-md text-primary/80 mt-2">120 hours of hand-weaving.</p>
+</div>
+</div>
+</div>
+<!-- Street Portrait -->
+<div class="md:col-span-3 md:row-span-2 relative group overflow-hidden bento-item bg-surface-container">
+<img alt="Street Style" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" data-alt="A stylish woman walks through a narrow, sun-drenched alleyway in ancient Varanasi wearing a fusion outfit of pleated linen trousers and a cropped brocade top. The scene is shot with a shallow depth of field, blurring the historic architecture in the background. The mood is authentic and modern, reflecting the soul of the city. The lighting is high-contrast and editorial." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNUMtVeSVjnS2ozyVzzGZMP2hQ8KxkxNx88LCh1gBWi4vW5ra-CYdTIrIWa0heioD1bQQtBjT4b-HYix-WPKhujMw_xmvDJpujhL335G3_8oHHepOVC4EobAYa0jKtu8jsI1KetuqKqh-NQCCVjgvDSkzer_xEr5uo4V-5pNF_QbVIpUMgw8s7QSPBJbS9p7KoFiGJrC4GeUSdiONYpTtPgDSXG6IIUnSPakPGPeXqBnZZ4BflCiUIxzEcwuk40uOcW48srLT33UWO"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary scale-150" data-icon="visibility">visibility</span>
+</div>
+</div>
+<!-- Landscape Editorial -->
+<div class="md:col-span-6 md:row-span-2 relative group overflow-hidden bento-item bg-surface-container">
+<img alt="Ghat Scene" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" data-alt="A wide cinematic landscape shot of the Varanasi Ghats at dawn with a thin mist over the river Ganga. In the foreground, a model stands on a stone platform wearing a long, flowing silk trench coat in a muted olive tone. The lighting is ethereal and cool-toned, with soft blues and greys dominating the palette. The composition is artistic and meditative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFTbEew7k1GfX3FxAvGYJ1rXkN9HNdi3fXu-OQInqUKjadH3vLSMt4O-TSh_F86vgBlwnybBuQ7bfl6lpEmJWHer3bVjMTDWuzqEiF_-xRyc6ciK6Pet5GGSToPnge4CAYrbq1TYoJjuLtsA2s-w2ShiZqLrjcPS-ka5Q5SlgVq9hEAPPbEmAzkW9FvlXArByv8EBBPnoxS8DcBS5-OsRbP8JCpOv3NV1QD5xGBgjXyOOqHXTlAEZTb840TRB0T5ZjOpMaUTGPOO4-"/>
+<div class="absolute top-6 left-6">
+<span class="bg-white/10 backdrop-blur-md px-3 py-1 text-[10px] font-label-caps text-white border border-white/20 tracking-widest">CHAPTER IV: REFLECTIONS</span>
+</div>
+</div>
+<!-- Product Focus -->
+<div class="md:col-span-3 md:row-span-2 relative group overflow-hidden bento-item bg-surface-container">
+<img alt="Accessory Detail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A studio-lit close-up of a high-fashion accessory, a clutch bag made from recycled sari fabrics and premium matte leather. The bag rests on a pedestal of raw basalt stone. The lighting is sharp and professional, focusing on the contrast between the rough stone and the delicate, patterned fabric. The background is a clean, minimal off-white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFICCA2fQhBG-hMxs20II1Hv4QtjJP7ulgCEwNK3DQ_GM8Olinlbf2P3jHN4EWhMmFmYTEuVMV4TuMAhOCbAZO6dH7nQelO7LxMG61p9A7ZvV050QObEFiBe3c6mqm_tcKVB44z6-fZ9CAl2IhT33mXgbw1Cc4Y5dekDMufuq89VUA2c9w5k969c9pvgfVjpToEZANA8LbHFawlbHpFjk7obCthnZsQPk1fQzvAOXu3_2UbXRGYfgDyi0bEeL-eL-VpncnN9S49tfd"/>
+</div>
+<!-- Lifestyle Shot -->
+<div class="md:col-span-3 md:row-span-2 relative group overflow-hidden bento-item bg-surface-container">
+<img alt="Portrait" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up portrait of a female model with minimal, dewy makeup and hair styled in a modern slicked-back look. She is wearing heavy, architectural gold earrings inspired by temple carvings. The lighting is soft and diffused, creating a serene, high-end beauty aesthetic. The color palette is warm neutrals and golds, evoking a sense of refined luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-JG4gQR0GAakTf9urkKN9OZUrvIp_5-0VwMZuRTry4Yk1BS6B-hTQ2E0sM8lBBZhZbHObVFQ9cv6CuanPgHsdI2uNeVufQgn4TxDTx3JvZRNYhF2vpnNslfv366IQ4VfFB9_VKTQzvRzjDoQtbfflhOr7RyRPINLzzc_KMYyPRpCDSLrDyTDakNuGwHyRO4Ul6o76m3C3AxKwHTsqSHVvn-adH298IqwN9XJ3jWbVLej2e9zDKxTP5PeqYsAyvVU68xpa_UjsbB0o"/>
+</div>
+<!-- Long Vertical Textural -->
+<div class="md:col-span-3 md:row-span-3 relative group overflow-hidden bento-item bg-surface-container">
+<img alt="Vertical Art" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A vertical editorial shot of a model draped in layers of sheer organza and heavy brocade, creating a silhouette that mimics the traditional 'sari' but with a radical, avant-garde twist. The model is positioned against a background of hanging yarn dyed in deep indigo. The lighting is moody and directional, casting long shadows and emphasizing the depth of the fabrics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYXFGurad_fD7GSE05-99TCwNhzy3ovlS-DwWrlT5eJlsmQwjO19D8qkiYsoYlXp4zCZrgQsf-qJKIyEgHx6HWicCrAWsfZkeDPHG44cNHsMuEq24YDajXsIQXA_zhBauT0ZDifOfIft1PyEu3dH1nWjmlETcQbVNaqKrG3iEDlLnBh3vkJ-ipxNUpIluxwXrie9Bg3hgjJtZobGgQvvc04fcBiPlGP4SixZcBTW0L3VLWiGAwstMix6Fk4IXD9pClDDlocBRBMdR2"/>
+</div>
+<!-- Wide Final Look -->
+<div class="md:col-span-9 md:row-span-3 relative group overflow-hidden bento-item bg-surface-container">
+<img alt="The Collection" class="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-105" data-alt="A wide shot featuring three models standing in a formation on a rooftop overlooking the city of Varanasi at twilight. They are dressed in the complete 'Varanasi Modern' collection, showing a range of streetwear bombers, tailored ethnic coats, and flowing drapes. The sky is a deep purple and orange. The overall vibe is that of a cinematic fashion campaign, emphasizing unity and the spirit of a new generation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANJrsyDXWyQiu6o63DBTnb1TFuP5SSN7W4fPOgRmdyVy3dNHaaBXyA4WmbvrvlaMX-b10fMh1jOI4Px2tWX94JUWKMfxsJT-sLP9MZWvvhvdeoG1mPf7lLKZrzCbCCkfwbM_PLmexWVnMkdHsHdyW4lUm98jpi1IE9sGEEG-JBs4vnuL-iVPierMkYo41kCh5Koq1RKhfNHqPHL8IZ5w3f3860aAGRBw5zeYikTZTTzSBmnuZ0M5j-uGBuZeEqiCW-gBJBA75OQi3M"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-12">
+<h2 class="font-display-lg text-headline-lg text-on-primary mb-2">Modern Heritage.</h2>
+<p class="font-body-md text-on-primary/70 max-w-lg mb-6">A testament to the weavers of the holy city, reimagined for the global stage.</p>
+<button class="w-fit border border-on-primary text-on-primary px-8 py-3 font-label-caps text-label-caps hover:bg-on-primary hover:text-primary transition-all duration-300">DISCOVER THE SERIES</button>
+</div>
+</div>
+</section>
+<!-- Artisanal Note -->
+<section class="mt-32 max-w-4xl mx-auto text-center">
+<span class="material-symbols-outlined text-on-tertiary-container mb-6 scale-125" data-icon="auto_awesome">auto_awesome</span>
+<h2 class="font-headline-lg text-headline-lg mb-8 italic">"Varanasi is not a city of the past; it is the heartbeat of a continuous future."</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">Our lookbook is an invitation to witness the friction between the old and the new. Every stitch is a conversation between an artisan and a visionary. We don't just make clothes; we preserve a legacy through the lens of disruption.</p>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container dark:bg-surface-container-low border-t border-outline-variant/30 dark:border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-bento-gap px-margin-desktop py-16 max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<h3 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed mb-6 uppercase">VARANASI MODERN</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Redefining Indian luxury through the lens of modern streetwear and heritage craft.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-6">EXPLORE</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-on-surface-variant dark:text-surface-variant font-body-md hover:text-on-tertiary-container transition-colors" href="about.html">Our Story</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant font-body-md hover:text-on-tertiary-container transition-colors" href="#">Artisan Craft</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant font-body-md hover:text-on-tertiary-container transition-colors" href="about.html#sustainability">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-6">SUPPORT</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-on-surface-variant dark:text-surface-variant font-body-md hover:text-on-tertiary-container transition-colors" href="about.html">Shipping &amp; Returns</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant font-body-md hover:text-on-tertiary-container transition-colors" href="#">Store Locator</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant font-body-md hover:text-on-tertiary-container transition-colors" href="contact.html">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-6">NEWSLETTER</h4>
+<form class="flex border-b border-primary/20 pb-2">
+<input class="bg-transparent border-none focus:ring-0 w-full font-label-caps text-label-caps" placeholder="JOIN THE MOVEMENT" type="email"/>
+<button class="material-symbols-outlined text-primary" data-icon="east" type="submit">east</button>
+</form>
+</div>
+</div>
+<div class="px-margin-desktop py-8 border-t border-outline-variant/10 max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-caps text-[10px] text-on-surface-variant tracking-widest uppercase">© 2024 VARANASI MODERN. HERITAGE IN EVERY STITCH.</p>
+<div class="flex gap-8">
+<a class="font-label-caps text-[10px] text-on-surface-variant tracking-widest hover:text-primary transition-colors" href="privacy.html">PRIVACY POLICY</a>
+<a class="font-label-caps text-[10px] text-on-surface-variant tracking-widest hover:text-primary transition-colors" href="privacy.html">TERMS OF SERVICE</a>
+</div>
+</div>
+</footer>
+</body></html>

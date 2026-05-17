@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <text x="50%" y="45" dominant-baseline="middle" text-anchor="middle" font-family="Bodoni Moda, serif" font-size="32" letter-spacing="0.5em" fill="#1a1a1a" font-weight="400">VARANASI</text>
+  <text x="50%" y="85" dominant-baseline="middle" text-anchor="middle" font-family="Bodoni Moda, serif" font-size="32" letter-spacing="0.5em" fill="#1a1a1a" font-weight="400">MODERN</text>
+  <path d="M150 105 L250 105" stroke="#D4AF37" stroke-width="0.5" />
+  <text x="50%" y="115" dominant-baseline="middle" text-anchor="middle" font-family="Bodoni Moda, serif" font-size="9" letter-spacing="0.9em" fill="#D4AF37" font-weight="300">EST. 2024</text>
+</svg>

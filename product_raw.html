@@ -1,0 +1,648 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                "colors": {
+                        "surface": "#f9f9f9",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container": "#eeeeee",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary": "#000000",
+                        "on-surface-variant": "#444748",
+                        "primary": "#000000",
+                        "on-secondary-container": "#716252",
+                        "on-primary-fixed-variant": "#474746",
+                        "background": "#f9f9f9",
+                        "on-secondary-fixed": "#241a0e",
+                        "surface-dim": "#dadada",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#524436",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-container": "#f4dfcb",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#261900",
+                        "secondary-fixed-dim": "#d7c3b0",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdea5",
+                        "on-surface": "#1a1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-container": "#858383",
+                        "inverse-surface": "#2f3131",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#6b5c4c",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e5e2e1",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-container": "#261900",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary-fixed": "#f4dfcb",
+                        "surface-variant": "#e2e2e2",
+                        "on-background": "#1a1c1c",
+                        "outline": "#747878",
+                        "on-tertiary-container": "#a17f3b",
+                        "on-primary": "#ffffff"
+                },
+                "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                },
+                "spacing": {
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px",
+                        "margin-mobile": "16px",
+                        "bento-gap": "16px",
+                        "gutter": "24px"
+                },
+                "fontFamily": {
+                        "body-lg": ["Montserrat"],
+                        "button-text": ["Montserrat"],
+                        "headline-md": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "label-caps": ["Montserrat"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "display-lg": ["Bodoni Moda"],
+                        "body-md": ["Montserrat"]
+                },
+                "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "button-text": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                }
+              },
+            },
+          }
+    </script>
+<style>
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Animations */
+        @keyframes reveal-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes reveal-right {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes image-fade-in {
+            from { opacity: 0.5; transform: scale(1.05); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-reveal-up {
+            animation: reveal-up 1.2s cubic-bezier(0.19, 1, 0.22, 1) both;
+        }
+
+        .animate-reveal-right {
+            animation: reveal-right 1.2s cubic-bezier(0.19, 1, 0.22, 1) both;
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gallery Transition */
+        #main-product-image {
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .image-changing {
+            opacity: 0.4 !important;
+            transform: scale(0.98) translateY(10px) !important;
+        }
+
+        /* Sophisticated Button Hover */
+        .btn-fancy {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .btn-fancy::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s;
+        }
+        .btn-fancy:hover::after {
+            left: 100%;
+        }
+        .btn-fancy:hover {
+            letter-spacing: 0.2em;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(0,0,0,0.3);
+        }
+        .btn-fancy:active {
+            transform: translateY(0);
+        }
+
+        /* Mega Menu Styles */
+        .mega-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .nav-item:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Staggered Grid reveal */
+        .staggered-item {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .visible .staggered-item {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .visible .staggered-item:nth-child(1) { transition-delay: 0.1s; }
+        .visible .staggered-item:nth-child(2) { transition-delay: 0.2s; }
+        .visible .staggered-item:nth-child(3) { transition-delay: 0.3s; }
+        .visible .staggered-item:nth-child(4) { transition-delay: 0.4s; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<header class="bg-surface/80 backdrop-blur-lg dark:bg-surface/80 docked full-width top-0 sticky z-50 border-b border-outline-variant/20 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center w-full px-margin-desktop py-base max-w-container-max mx-auto">
+<div class="flex-1 hidden md:flex gap-gutter items-center h-full">
+<div class="nav-item group relative h-full flex items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 py-4" href="#">Shop All</a>
+</div>
+<div class="nav-item group relative h-full flex items-center">
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1 py-4" href="{{DATA:SCREEN:SCREEN_6}}">The Collections</a>
+<!-- Mega Menu Content -->
+<div class="mega-menu absolute top-full left-0 w-[800px] bg-white shadow-xl border border-outline-variant/20 p-margin-desktop grid grid-cols-3 gap-gutter z-50">
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-gutter border-b border-outline-variant/30 pb-2">By Series</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">The Heritage Series</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Urban Ethnic '24</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Bespoke Tailoring</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Artisan Objects</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-gutter border-b border-outline-variant/30 pb-2">By Category</h4>
+<ul class="space-y-4">
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Silk Bombers</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Mandarin Shirts</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Tapered Trousers</a></li>
+<li class=""><a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Accessories</a></li>
+</ul>
+</div>
+<div>
+<div class="aspect-[3/4] overflow-hidden group/image relative">
+<img alt="Featured Look" class="w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOnLU_axie9DMYUrqxBu2QAL-V7YyI6jsgBSdv_qlv0Dj7bA4Ux3UpesJwPBtxGHP2y90YOHjQgYgs0HsmcvbhoBEhU87IUmuShyAcu9zxrHfYPYhNS_7Y3nVNUTdJLVnj8CIywlIac3Z2YKjxHcTP2GJhXplCuVDbHMCR-9MJW9UNCXkejFZ4FS6GZAOQdEQrXP_IS7bozAH04wTKY4HbGAxaoxoRsUPWhE1vflM8aAbELn5g5gxg0fYSUuCz_lTGMKeEYx9j2igw">
+<div class="absolute inset-0 bg-black/20 flex items-end p-4">
+<span class="text-white font-label-caps text-label-caps">Discover Heritage</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav-item group relative h-full flex items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300 py-4" href="#">Newest Arrivals</a>
+</div>
+</div>
+<div class="flex-none">
+<a class="block py-2" href="{{DATA:SCREEN:SCREEN_7}}">
+<img alt="Varanasi Modern" class="w-auto object-contain h-24" src="https://lh3.googleusercontent.com/aida/ADBb0ugN8C5R02j0HvFN_V87py5eDEuu3lDBEE2HRl37NJqSh0yAHgauSos1TKgHnazGhTSxrnvlbtZ5YRfC4lpiFRPndIVmSD1MUAo_l_7FgaLJ1jbLQCSuXuay0YMolREsGUlOxheVZBIqeKm0wFycUXnrMlNvcUJTc5NNNIUr1nK11bux2mYeksXBCl5eACmHikAYyqccsHPhLaykbU8F06UT2vLCmHVyD7pZFB3bb4COKAh9GYq_tNhsSXc">
+</a>
+</div>
+<div class="flex-1 flex justify-end items-center gap-gutter">
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="{{DATA:SCREEN:SCREEN_2}}">Our Story</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="{{DATA:SCREEN:SCREEN_5}}">Inquiry</a>
+</div>
+<div class="flex items-center gap-base">
+<button class="p-base hover:opacity-70 transition-opacity duration-300"><span class="material-symbols-outlined text-primary">favorite</span></button>
+<button class="p-base hover:opacity-70 transition-opacity duration-300"><span class="material-symbols-outlined text-primary">shopping_bag</span></button>
+<button class="p-base hover:opacity-70 transition-opacity duration-300"><span class="material-symbols-outlined text-primary">person</span></button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-margin-desktop">
+<!-- Breadcrumbs -->
+<nav class="mb-gutter animate-reveal-right">
+<ol class="flex items-center space-x-2 font-label-caps text-label-caps text-on-surface-variant">
+<li class=""><a class="hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_7}}">Home</a></li>
+<li class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_6}}">Collections</a>
+</li>
+<li class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary">Heritage Silk Bomber</span>
+</li>
+</ol>
+</nav>
+<!-- Product Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-margin-desktop mb-margin-desktop">
+<!-- Gallery Section -->
+<div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-base h-fit">
+<!-- Thumbnails -->
+<div class="md:col-span-2 order-2 md:order-1 flex md:flex-col gap-base">
+<button class="thumbnail-btn border border-primary p-1 bg-white transition-all duration-300 transform hover:scale-105" data-full-src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOnLU_axie9DMYUrqxBu2QAL-V7YyI6jsgBSdv_qlv0Dj7bA4Ux3UpesJwPBtxGHP2y90YOHjQgYgs0HsmcvbhoBEhU87IUmuShyAcu9zxrHfYPYhNS_7Y3nVNUTdJLVnj8CIywlIac3Z2YKjxHcTP2GJhXplCuVDbHMCR-9MJW9UNCXkejFZ4FS6GZAOQdEQrXP_IS7bozAH04wTKY4HbGAxaoxoRsUPWhE1vflM8aAbELn5g5gxg0fYSUuCz_lTGMKeEYx9j2igw">
+<img class="w-full aspect-[3/4] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOnLU_axie9DMYUrqxBu2QAL-V7YyI6jsgBSdv_qlv0Dj7bA4Ux3UpesJwPBtxGHP2y90YOHjQgYgs0HsmcvbhoBEhU87IUmuShyAcu9zxrHfYPYhNS_7Y3nVNUTdJLVnj8CIywlIac3Z2YKjxHcTP2GJhXplCuVDbHMCR-9MJW9UNCXkejFZ4FS6GZAOQdEQrXP_IS7bozAH04wTKY4HbGAxaoxoRsUPWhE1vflM8aAbELn5g5gxg0fYSUuCz_lTGMKeEYx9j2igw">
+</button>
+<button class="thumbnail-btn border border-transparent hover:border-outline p-1 transition-all duration-300 transform hover:scale-105" data-full-src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw917DDOVOABFOlxWkRf2eWXYKffzgKC8nqiZfWzGm09TnwNfLMgEng_a-VfHAnJMZ_TKRsqybxRIZU6wFxZ1LfzUwtflAfgDPLKzK0jdF4fmRWIjBrkFQJwaYBc8BdXN60kjy1P25wl43-OtwpCem9kZnwsNK3jGIVgDAv6OeuS77xx3tB0agrv-5Kepxv6sHk6Zx7FU9fjrqK9KiligJNueb_f--t_fS4ThiqiFo1jbRc7NhTT8u8iUGnrY52ewvsUWaYeMlHeLB">
+<img class="w-full aspect-[3/4] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw917DDOVOABFOlxWkRf2eWXYKffzgKC8nqiZfWzGm09TnwNfLMgEng_a-VfHAnJMZ_TKRsqybxRIZU6wFxZ1LfzUwtflAfgDPLKzK0jdF4fmRWIjBrkFQJwaYBc8BdXN60kjy1P25wl43-OtwpCem9kZnwsNK3jGIVgDAv6OeuS77xx3tB0agrv-5Kepxv6sHk6Zx7FU9fjrqK9KiligJNueb_f--t_fS4ThiqiFo1jbRc7NhTT8u8iUGnrY52ewvsUWaYeMlHeLB">
+</button>
+<button class="thumbnail-btn border border-transparent hover:border-outline p-1 transition-all duration-300 transform hover:scale-105" data-full-src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGstRq3n-dDdy-M3rQB4RexdszxBbN-zVqO3pyye0dr5D3cdO1vU2JsyquZQezuOZOmHV6cu8Mcnj1-S-u9xFyANHfJEL0ls75hZA0QQD-CXeN-3vLPfH--eiltIu9Nq3IYpOESxCOCq30rnjcYZwJmiVTfxjW32r7lwFW4yh-2WKdf-sfqoAtfyMumIvd01RtaqnLFsBdRaZuiQmIeEUzbDuYCnXkNgxMpUgGP_VYfSjB-rjw5xT20qTtgv2kLA0TlFOm2mD98iIy">
+<img class="w-full aspect-[3/4] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGstRq3n-dDdy-M3rQB4RexdszxBbN-zVqO3pyye0dr5D3cdO1vU2JsyquZQezuOZOmHV6cu8Mcnj1-S-u9xFyANHfJEL0ls75hZA0QQD-CXeN-3vLPfH--eiltIu9Nq3IYpOESxCOCq30rnjcYZwJmiVTfxjW32r7lwFW4yh-2WKdf-sfqoAtfyMumIvd01RtaqnLFsBdRaZuiQmIeEUzbDuYCnXkNgxMpUgGP_VYfSjB-rjw5xT20qTtgv2kLA0TlFOm2mD98iIy">
+</button>
+</div>
+<!-- Main Image -->
+<div class="md:col-span-10 order-1 md:order-2">
+<div class="relative overflow-hidden group">
+<img class="w-full aspect-[3/4] object-cover" id="main-product-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA69cjP2gDvPLGXVTAfJTPeXTAKPTA7H-7XVSa63FoN_OEV6T8hqA0kCsh5zAwAASiMCVPQ0UrTCnb98tKK52uhoklJwWx2PgM_TUcX_auXEpl-FyKOQZRl5E16JuZL6LgRw6DPrsLIqR-Bc81dYCZs3aW2lnUtztOdfxwQ0zNwRAdmhSmr4BBo89BwkQglsB6efK6zhjp39H6Hulkaq7FshqY2HzmRbAsk5OF5uyFPQQareXtarg3fq57an88TQi61smWq2GzjaQUk">
+<div class="absolute bottom-base right-base flex gap-base opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<button class="w-12 h-12 rounded-full bg-surface/80 glass-effect flex items-center justify-center hover:bg-white transition-colors shadow-lg">
+<span class="material-symbols-outlined">zoom_in</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Detail Section -->
+<div class="lg:col-span-5 flex flex-col">
+<div class="mb-gutter">
+<span class="font-label-caps text-label-caps text-secondary mb-base block tracking-widest uppercase animate-reveal-up stagger-1">Limited Edition / Hand-Crafted</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-base animate-reveal-up stagger-2">HERITAGE SILK BOMBER</h2>
+<p class="font-headline-md text-headline-md text-on-surface-variant italic mb-gutter animate-reveal-up stagger-3">₹48,500</p>
+<div class="w-12 h-[2px] bg-primary mb-gutter animate-reveal-up stagger-3"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-gutter animate-reveal-up stagger-4">
+                    A seamless blend of 17th-century Banarasi weaving techniques and 21st-century urban silhouettes. This piece features a hand-loomed mulberry silk body with meticulously embroidered 'Zardozi' metallic thread work on the reverse. Each jacket is uniquely numbered and crafted over 120 artisan hours.
+                </p>
+</div>
+<!-- Selectors -->
+<div class="space-y-gutter mb-margin-desktop animate-reveal-up stagger-5">
+<div>
+<div class="flex justify-between items-center mb-base">
+<span class="font-label-caps text-label-caps text-primary">SELECT SIZE</span>
+<button class="font-label-caps text-label-caps text-secondary underline hover:text-primary transition-colors">SIZE GUIDE</button>
+</div>
+<div class="grid grid-cols-4 gap-base">
+<button class="size-btn border border-outline py-base font-label-caps text-label-caps hover:border-primary hover:bg-surface-container transition-all">XS</button>
+<button class="size-btn border border-primary bg-primary text-white py-base font-label-caps text-label-caps hover:bg-on-surface-variant transition-all">S</button>
+<button class="size-btn border border-outline py-base font-label-caps text-label-caps hover:border-primary hover:bg-surface-container transition-all">M</button>
+<button class="border border-outline py-base font-label-caps text-label-caps opacity-40 cursor-not-allowed">L</button>
+</div>
+</div>
+<div class="flex flex-col gap-base">
+<button class="btn-fancy w-full bg-primary text-white font-label-caps text-label-caps py-6 flex items-center justify-center gap-base shadow-sm">
+                        ADD TO CART
+                    </button>
+<button class="btn-fancy w-full border border-primary text-primary font-label-caps text-label-caps py-6 hover:bg-primary hover:text-white transition-all flex items-center justify-center gap-base">
+<span class="material-symbols-outlined text-[18px]">favorite</span> ADD TO WISHLIST
+                    </button>
+</div>
+</div>
+<!-- Info Accordions -->
+<div class="border-t border-outline-variant animate-reveal-up stagger-5">
+<div class="border-b border-outline-variant py-gutter overflow-hidden">
+<button class="accordion-trigger flex justify-between items-center w-full group py-1">
+<span class="font-label-caps text-label-caps text-primary group-hover:tracking-wider transition-all duration-300">PRODUCT DETAILS</span>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content max-h-[500px] transition-all duration-500 ease-in-out opacity-100">
+<div class="mt-base font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                            • Outer: 100% Hand-loomed Mulberry Silk<br>
+                            • Lining: Sustainable Bamboo Viscose<br>
+                            • Hardware: Recycled Brass, Gold-tone finish<br>
+                            • Origin: Varanasi, India
+                        </div>
+</div>
+</div>
+<div class="border-b border-outline-variant py-gutter overflow-hidden">
+<button class="accordion-trigger flex justify-between items-center w-full group py-1">
+<span class="font-label-caps text-label-caps text-primary group-hover:tracking-wider transition-all duration-300">SHIPPING &amp; RETURNS</span>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+<div class="mt-base font-body-md text-body-md text-on-surface-variant">
+                            Premium worldwide shipping available. Each item is packaged in a signature dust bag and luxury presentation box. Returns accepted within 14 days for exchange or credit.
+                        </div>
+</div>
+</div>
+<div class="border-b border-outline-variant py-gutter overflow-hidden">
+<button class="accordion-trigger flex justify-between items-center w-full group py-1">
+<span class="font-label-caps text-label-caps text-primary group-hover:tracking-wider transition-all duration-300">ETHICAL CRAFTSMANSHIP</span>
+<span class="material-symbols-outlined transition-transform duration-300">expand_more</span>
+</button>
+<div class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+<div class="mt-base font-body-md text-body-md text-on-surface-variant">
+                            We support fair wages for our artisans in Varanasi. Our weaving processes minimize water waste and utilize solar power where possible in our ateliers.
+                        </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Reviews Section -->
+<section class="reveal-on-scroll mb-margin-desktop py-margin-desktop border-t border-outline-variant visible">
+<div class="flex flex-col md:flex-row justify-between items-end mb-margin-desktop gap-gutter">
+<div class="max-w-xl">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">REVIEWS</h3>
+<div class="flex items-center gap-4 mb-4">
+<div class="flex text-on-tertiary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star_half</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">4.9 BASED ON 42 REVIEWS</span>
+</div>
+</div>
+<button class="border-b-2 border-primary font-label-caps text-label-caps pb-1 hover:opacity-70 hover:tracking-widest transition-all duration-500">WRITE A REVIEW</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Review Card 1 -->
+<div class="bg-surface-container-lowest p-gutter border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+<div class="flex justify-between items-start mb-base">
+<div>
+<p class="font-label-caps text-label-caps text-primary">ANANYA S.</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">VERIFIED BUYER</p>
+</div>
+<div class="flex text-on-tertiary-container scale-75 origin-right">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md italic text-on-surface mb-gutter">"The quality of the silk is unparalleled. It's not just a jacket, it's a wearable piece of art. The fit is modern but respects traditional drape."</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">FEBRUARY 12, 2024</p>
+</div>
+<!-- Review Card 2 -->
+<div class="bg-surface-container-lowest p-gutter border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+<div class="flex justify-between items-start mb-base">
+<div>
+<p class="font-label-caps text-label-caps text-primary">MARCUS K.</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">VERIFIED BUYER</p>
+</div>
+<div class="flex text-on-tertiary-container scale-75 origin-right">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md italic text-on-surface mb-gutter">"International shipping was faster than expected. Packaging was incredibly premium, reflecting the brand's dedication to luxury."</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">JANUARY 28, 2024</p>
+</div>
+<!-- Review Card 3 -->
+<div class="bg-surface-container-lowest p-gutter border border-outline-variant/10 shadow-sm hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1">
+<div class="flex justify-between items-start mb-base">
+<div>
+<p class="font-label-caps text-label-caps text-primary">PRIYA V.</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant">VERIFIED BUYER</p>
+</div>
+<div class="flex text-on-tertiary-container scale-75 origin-right">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md italic text-on-surface mb-gutter">"Incredible detail on the embroidery. It's substantial yet breathable. Truly captures the spirit of modern Varanasi."</p>
+<p class="font-label-caps text-[10px] text-on-surface-variant uppercase tracking-widest">JANUARY 15, 2024</p>
+</div>
+</div>
+</section>
+<!-- Related Products Section: Complete the Look -->
+<section class="reveal-on-scroll py-margin-desktop border-t border-outline-variant visible">
+<div class="mb-gutter">
+<h3 class="font-headline-lg text-headline-lg text-primary uppercase">COMPLETE THE LOOK</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant mt-2">CURATED PAIRINGS FOR THE HERITAGE COLLECTION</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Product 1: Updated Model Style -->
+<a class="group cursor-pointer block staggered-item" href="{{DATA:SCREEN:SCREEN_6}}">
+<div class="relative aspect-[3/4] overflow-hidden mb-base bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVp4OJywD44SItF6Wq478wLQphSJ6IOsiiwIGm68-vIU6L7CpHnUA_eIQ1ws3TSSUibeOd5Kc_-CMZcBk_WYzYACvXXxxIc-AcdIvTTQsP8Z_4guiMj4ntYzhF5LRhaP-QA6BeuvUl24AgVMO3ucpv4TTCmNFRuPuLiw3bn-ULCKYAIrgTew6lm0wdKrximlEnGMLOl-WGDiRxnOEKKxpfVDYtjfjgBTA8t5qGVQtRVCgaycRcXZg-uGZFCczj2p30LKmLR6Fe3Qy_">
+<button class="absolute bottom-4 right-4 bg-white/90 p-2 glass-effect opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 shadow-lg hover:scale-110">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<p class="font-label-caps text-label-caps text-primary mb-1 group-hover:translate-x-1 transition-transform duration-500">RAW SILK TROUSERS</p>
+<p class="font-body-md text-body-md text-on-surface-variant italic">₹18,200</p>
+</a>
+<!-- Product 2: Updated Model Style -->
+<a class="group cursor-pointer block staggered-item" href="{{DATA:SCREEN:SCREEN_6}}">
+<div class="relative aspect-[3/4] overflow-hidden mb-base bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARNbGQ9h4CfQoH6OvY3iu0GZc-bQILuy14nFCfd34-r7riomO0BmqqkbQpmtpGETVgm-o0bGVwuMu-EIr9eCHm4LGKgRtpvzDtTvIVsHKGT0Fjhkuad4MF34Q14ic1RWKU2eSuZ7c6WjtnJJs0H7zNDLZ6Tx7rYDzIapKKRPfidswfZVuj_rc_eEIGUi9ezZ5PohHjdhh4SDdFdhejEynT0CKw5sDu6kMrkUiDmgmusqgv_kfsA8nByya88TwZIxQqXsItXT6QrIAv">
+<button class="absolute bottom-4 right-4 bg-white/90 p-2 glass-effect opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 shadow-lg hover:scale-110">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<p class="font-label-caps text-label-caps text-primary mb-1 group-hover:translate-x-1 transition-transform duration-500">MANDARIN ESSENTIAL SHIRT</p>
+<p class="font-body-md text-body-md text-on-surface-variant italic">₹12,500</p>
+</a>
+<!-- Product 3: Updated Model Style -->
+<a class="group cursor-pointer block staggered-item" href="{{DATA:SCREEN:SCREEN_6}}">
+<div class="relative aspect-[3/4] overflow-hidden mb-base bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFli77yn7AAX_xfRabz3iUqc7y2nfihmIpgk4d3KNyHeC2W2ekiajpIGrAyBUgapCpq_UXD6fv7CC9jY2LD_qB8-_GmQJf4IAM4pTQm6I4pfpNzAlcF8QBijG30z1-mvLmfGtTEt635Fm2apyhV_5Fk8qAakfLR9z59NvjUzkpT2GIY8JrbfbIxCtfd9N-dAKSNZGkRpGLXG_rZO7AkPvzPc-KUrI--1RXOyl2h-5tNYyTWjFzGO71Sp9ej4u-CJEmuNjV7MpyCsF4">
+<button class="absolute bottom-4 right-4 bg-white/90 p-2 glass-effect opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 shadow-lg hover:scale-110">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<p class="font-label-caps text-label-caps text-primary mb-1 group-hover:translate-x-1 transition-transform duration-500">MODERNIST LOAFERS</p>
+<p class="font-body-md text-body-md text-on-surface-variant italic">₹24,000</p>
+</a>
+<!-- Product 4: Updated Model Style -->
+<a class="group cursor-pointer block staggered-item" href="{{DATA:SCREEN:SCREEN_6}}">
+<div class="relative aspect-[3/4] overflow-hidden mb-base bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-njmccXmmT-JgaWE9PWijP97TTTLt-aHpl522n2DOvBjaud7Qxzrv5iWF0o1ESV1Ft2nBKU1h1OAL--jSlAfxR5eB0uT00__MdEiMDi4YKvrKuNAHyBkkwNtBUQsIJL1fOA4sph2LsutP34WemprqMZg_H65Y7cZKSMJ3iRB0bKRzPYDcCh5WL5DBnMPnL8n9MHicOa_E0xiGJNkr7zAt0iN0fc290sfM-JstXhnGcQwLcY9A9TaRJtkmtwmgMOhj_N84T2Z1Kuk6">
+<button class="absolute bottom-4 right-4 bg-white/90 p-2 glass-effect opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0 shadow-lg hover:scale-110">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<p class="font-label-caps text-label-caps text-primary mb-1 group-hover:translate-x-1 transition-transform duration-500">GRAIN LEATHER BELT</p>
+<p class="font-body-md text-body-md text-on-surface-variant italic">₹8,900</p>
+</a>
+</div>
+</section>
+</main>
+<footer class="bg-surface-container-highest border-t border-outline-variant full-width">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-1">
+<img alt="Varanasi Modern" class="w-auto object-contain mb-base grayscale brightness-50 h-20" src="https://lh3.googleusercontent.com/aida/ADBb0ugN8C5R02j0HvFN_V87py5eDEuu3lDBEE2HRl37NJqSh0yAHgauSos1TKgHnazGhTSxrnvlbtZ5YRfC4lpiFRPndIVmSD1MUAo_l_7FgaLJ1jbLQCSuXuay0YMolREsGUlOxheVZBIqeKm0wFycUXnrMlNvcUJTc5NNNIUr1nK11bux2mYeksXBCl5eACmHikAYyqccsHPhLaykbU8F06UT2vLCmHVyD7pZFB3bb4COKAh9GYq_tNhsSXc">
+<p class="font-body-md text-body-md text-on-surface-variant mb-gutter pr-gutter">Elevating Indian craftsmanship into the global luxury consciousness. Each piece is a testament to the hands that weave and the minds that design.</p>
+</div>
+<div class="flex flex-col gap-base">
+<h5 class="font-label-caps text-label-caps text-primary mb-base">COLLECTIONS</h5>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="{{DATA:SCREEN:SCREEN_6}}">The Heritage Series</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="{{DATA:SCREEN:SCREEN_6}}">Urban Ethnic</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Bespoke Tailoring</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Artisan Objects</a>
+</div>
+<div class="flex flex-col gap-base">
+<h5 class="font-label-caps text-label-caps text-primary mb-base">SUPPORT</h5>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="{{DATA:SCREEN:SCREEN_2}}">Our Story</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Shipping &amp; Returns</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="{{DATA:SCREEN:SCREEN_5}}">Contact Us</a>
+</div>
+<div class="flex flex-col">
+<h5 class="font-label-caps text-label-caps text-primary mb-base">JOIN THE JOURNEY</h5>
+<p class="font-body-md text-body-md text-on-surface-variant mb-gutter">Subscribe for exclusive releases and artisan stories.</p>
+<div class="relative group">
+<input class="w-full bg-transparent border-b border-outline-variant py-2 font-label-caps text-label-caps focus:outline-none focus:border-primary transition-all duration-500 placeholder:text-on-surface-variant/50" placeholder="YOUR EMAIL" type="email">
+<button class="absolute right-0 bottom-2 font-label-caps text-label-caps text-primary hover:tracking-widest transition-all duration-300">SIGN UP</button>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-base border-t border-outline-variant/30 flex justify-between items-center max-w-container-max mx-auto">
+<p class="font-label-caps text-[10px] text-on-surface-variant tracking-widest uppercase">© 2024 VARANASI MODERN. CRAFTED IN INDIA FOR THE WORLD.</p>
+<div class="flex gap-gutter">
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-colors" href="#">INSTAGRAM</a>
+<a class="font-label-caps text-[10px] text-on-surface-variant hover:text-primary transition-colors" href="#">VIMEO</a>
+</div>
+</div>
+</footer>
+<script>
+    // Scroll reveal observer
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+    // Gallery Motion: Slide and Fade
+    const mainImage = document.getElementById('main-product-image');
+    const thumbnails = document.querySelectorAll('.thumbnail-btn');
+
+    thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', function() {
+            const newSrc = this.getAttribute('data-full-src');
+            if (mainImage.src === newSrc) return;
+
+            mainImage.classList.add('image-changing');
+            
+            thumbnails.forEach(t => t.classList.remove('border-primary'));
+            thumbnails.forEach(t => t.classList.add('border-transparent'));
+            
+            this.classList.remove('border-transparent');
+            this.classList.add('border-primary');
+
+            setTimeout(() => {
+                mainImage.src = newSrc;
+                mainImage.classList.remove('image-changing');
+            }, 300);
+        });
+    });
+
+    // Elegant Accordion Toggling
+    const accordions = document.querySelectorAll('.accordion-trigger');
+    accordions.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const content = trigger.nextElementSibling;
+            const icon = trigger.querySelector('.material-symbols-outlined');
+            
+            const isOpen = content.classList.contains('opacity-100') || (content.style.maxHeight !== '0px' && content.style.maxHeight !== '');
+
+            if (isOpen) {
+                content.style.maxHeight = '0px';
+                content.classList.remove('opacity-100');
+                content.classList.add('opacity-0');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = '500px';
+                content.classList.remove('opacity-0');
+                content.classList.add('opacity-100');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+
+    // Size Selector Logic
+    const sizeButtons = document.querySelectorAll('.size-btn');
+    sizeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            sizeButtons.forEach(b => {
+                b.classList.remove('bg-primary', 'text-white', 'border-primary');
+                b.classList.add('border-outline', 'text-on-surface');
+            });
+            btn.classList.add('bg-primary', 'text-white', 'border-primary');
+            btn.classList.remove('border-outline');
+        });
+    });
+
+    // Header transition on scroll
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.classList.add('py-2', 'shadow-md');
+            header.classList.remove('py-base', 'shadow-sm');
+        } else {
+            header.classList.remove('py-2', 'shadow-md');
+            header.classList.add('py-base', 'shadow-sm');
+        }
+    });
+</script>
+
+
+</body></html>

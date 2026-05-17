@@ -1,0 +1,633 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&amp;family=Montserrat:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f9f9f9",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container": "#eeeeee",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary": "#000000",
+                        "on-surface-variant": "#444748",
+                        "primary": "#000000",
+                        "on-secondary-container": "#716252",
+                        "on-primary-fixed-variant": "#474746",
+                        "background": "#f9f9f9",
+                        "on-secondary-fixed": "#241a0e",
+                        "surface-dim": "#dadada",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-secondary-fixed-variant": "#524436",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-container": "#f4dfcb",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#261900",
+                        "secondary-fixed-dim": "#d7c3b0",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed": "#ffdea5",
+                        "on-surface": "#1a1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-container": "#858383",
+                        "inverse-surface": "#2f3131",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "on-secondary": "#ffffff",
+                        "secondary": "#6b5c4c",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e5e2e1",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#1c1b1b",
+                        "tertiary-container": "#261900",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-on-surface": "#f1f1f1",
+                        "secondary-fixed": "#f4dfcb",
+                        "surface-variant": "#e2e2e2",
+                        "on-background": "#1a1c1c",
+                        "outline": "#747878",
+                        "on-tertiary-container": "#a17f3b",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px",
+                        "margin-mobile": "16px",
+                        "bento-gap": "16px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Montserrat"],
+                        "button-text": ["Montserrat"],
+                        "headline-md": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "label-caps": ["Montserrat"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "display-lg": ["Bodoni Moda"],
+                        "body-md": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "button-text": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-lg": ["84px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .glass {
+            background: rgba(249, 249, 249, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* --- High-End Animation Suite --- */
+
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .entrance-stagger-1 { animation: revealUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+        .entrance-stagger-2 { animation: revealUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both; }
+        .entrance-stagger-3 { animation: revealUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both; }
+        .entrance-stagger-4 { animation: revealUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both; }
+
+        .text-mask {
+            overflow: hidden;
+            display: block;
+        }
+        .text-slide-up {
+            display: inline-block;
+            transform: translateY(110%);
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active .text-slide-up {
+            transform: translateY(0);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-stagger > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-stagger.active > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-stagger.active > *:nth-child(1) { transition-delay: 0.1s; }
+        .reveal-stagger.active > *:nth-child(2) { transition-delay: 0.2s; }
+        .reveal-stagger.active > *:nth-child(3) { transition-delay: 0.3s; }
+        .reveal-stagger.active > *:nth-child(4) { transition-delay: 0.4s; }
+        .reveal-stagger.active > *:nth-child(5) { transition-delay: 0.5s; }
+        .reveal-stagger.active > *:nth-child(6) { transition-delay: 0.6s; }
+
+        .ken-burns-container img {
+            transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ken-burns-container:hover img {
+            transform: scale(1.1);
+        }
+
+        .secondary-actions {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ken-burns-container:hover .secondary-actions {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .magnetic-btn {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .magnetic-btn:hover {
+            transform: scale(1.05) translateY(-2px);
+        }
+
+        .link-underline {
+            position: relative;
+        }
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .link-underline:hover::after {
+            width: 100%;
+        }
+
+        .btn-hover-shift {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-hover-shift::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #261900;
+            transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
+        }
+        .btn-hover-shift:hover::before {
+            left: 0;
+        }
+
+        /* Mega Menu Styles */
+        .mega-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .group:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation Bar -->
+<header class="bg-surface/80 backdrop-blur-lg docked full-width top-0 sticky z-50 border-b border-outline-variant/20 shadow-sm entrance-stagger-1">
+<div class="flex justify-between items-center w-full px-margin-desktop py-base max-w-container-max mx-auto relative">
+<div class="flex-1 flex gap-gutter hidden md:flex">
+<nav class="flex gap-gutter items-center">
+<!-- Shop with Mega Menu -->
+<div class="group relative">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors link-underline py-4" href="{{DATA:SCREEN:SCREEN_16}}">Shop</a>
+<!-- Mega Menu Container -->
+<div class="mega-menu absolute top-full left-[-64px] w-[90vw] max-w-[1200px] bg-white shadow-2xl border-t border-outline-variant/10 p-12 grid grid-cols-4 gap-12 z-50">
+<div class="flex flex-col gap-6">
+<h5 class="font-label-caps text-label-caps text-primary border-b border-outline-variant pb-2">New Arrivals</h5>
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_16}}">The Royal Archive</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_16}}">Spring/Summer '24</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_16}}">Limited Vault</a>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<h5 class="font-label-caps text-label-caps text-primary border-b border-outline-variant pb-2">Collections</h5>
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_16}}">Varanasi Velvets</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_16}}">Loom Denim</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_16}}">The Craft Series</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="{{DATA:SCREEN:SCREEN_16}}">Streetwear Fusion</a>
+</div>
+</div>
+<div class="flex flex-col gap-6 col-span-2">
+<div class="grid grid-cols-2 gap-4">
+<div class="relative group/img overflow-hidden aspect-[4/3]">
+<img alt="Featured" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4pL0ljWZKfzyyy9PoonxgYbUMdHM_LnhdBjUlrYz8vktrZHyrJY85-RVIn3H7QSFFKk8dp94GCO2c7XiZsiQLGcPh4p1LWz4lKnL8FTzFdBV_3Qc51reaXx7m9OQwJ9ADsPXTU8Z7Urq7U5dQ7aQRbt6hoSPAQzb0tFyw9jQ77U7Alv24RtQQhHGgQthFIPCjanckYL6DaoX22ncf0nz9OA6KgkBXcOcy_naEm3IVHB2Z8pPG2klNK9Y1BY-kfqZZZprhdyihcvos">
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<span class="font-label-caps text-[10px] text-white tracking-widest uppercase">The Velvet Story</span>
+</div>
+</div>
+<div class="relative group/img overflow-hidden aspect-[4/3]">
+<img alt="Featured" class="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm_5WVRgJTmfVFiX9B_ejuCp9aZ1gJ2LJPXvHci9JTsE6FDUrkXtlIV6G1B4KHIEBYME_pdGwNBHIOAAL8wOo-Rn0nMM_TOCr9lpOMbhWX2sgDfkFWjmnI1bbXtokMNRU2KsQh6CL2RKcbVVel1aiuoehKzQVoEQbsrubr8nHDb8eMagnmvL6Rz3ZJ7gol_zIQ0SO14gtST6j0b8nBAg3IO7ZHjel3PzVo9cpwiCWktqJvEMFvd7NoqesfVNGNuPEklz6gn2R-TQsQ">
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+<span class="font-label-caps text-[10px] text-white tracking-widest uppercase">Loom Denim '24</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors link-underline" href="{{DATA:SCREEN:SCREEN_16}}">Collections</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors link-underline" href="{{DATA:SCREEN:SCREEN_15}}">About</a>
+</nav>
+</div>
+<!-- Perfectly Centered Logo -->
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+<a href="#">
+<img alt="Varanasi Modern Elevated Logo" class="w-auto object-contain hover:opacity-70 transition-opacity h-24 md:h-28" src="https://lh3.googleusercontent.com/aida/ADBb0ugN8C5R02j0HvFN_V87py5eDEuu3lDBEE2HRl37NJqSh0yAHgauSos1TKgHnazGhTSxrnvlbtZ5YRfC4lpiFRPndIVmSD1MUAo_l_7FgaLJ1jbLQCSuXuay0YMolREsGUlOxheVZBIqeKm0wFycUXnrMlNvcUJTc5NNNIUr1nK11bux2mYeksXBCl5eACmHikAYyqccsHPhLaykbU8F06UT2vLCmHVyD7pZFB3bb4COKAh9GYq_tNhsSXc">
+</a>
+</div>
+<div class="flex-1 flex justify-end items-center gap-gutter">
+<nav class="flex gap-gutter items-center hidden md:flex mr-gutter">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors link-underline" href="{{DATA:SCREEN:SCREEN_5}}">Contact</a>
+</nav>
+<div class="flex gap-base">
+<a href="{{DATA:SCREEN:SCREEN_124}}">
+<span class="material-symbols-outlined text-primary cursor-pointer magnetic-btn" data-icon="favorite">favorite</span>
+</a>
+<a href="{{DATA:SCREEN:SCREEN_128}}">
+<span class="material-symbols-outlined text-primary cursor-pointer magnetic-btn" data-icon="shopping_bag">shopping_bag</span>
+</a>
+<a href="{{DATA:SCREEN:SCREEN_95}}">
+<span class="material-symbols-outlined text-primary cursor-pointer magnetic-btn" data-icon="person">person</span>
+</a>
+</div>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[92vh] w-full overflow-hidden mt-0">
+<img alt="High-fashion editorial banner for a luxury Indian clothing brand." class="w-full h-full object-cover scale-100 transition-transform duration-[10s] hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmBS4OjDxd5q7EmcWYmP_xxIiFAf0uGmbC_AVl-NubV3ym_3GM_nuEJuNQxWP2B-EWQHkqcCJV-u9kC3kHPxI4rVFyapqzr3In_CA4qChB2Ofu-Rwe3ocDMqBdgtNlDnw0VVgsCF8LaHX61yDb1IiV4wWLB9wGxF_edOWa-mp3x8RywGVGlidQrW1Ud_Yd7Prbk1cBFzWHnC0KSY-JVwWR4avctOofX4ZlIZDhv-yopwq1iwBDNKPkWC-s5LY0lM8zMwyHRc048i10">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end">
+<div class="px-margin-desktop pb-margin-desktop w-full max-w-container-max mx-auto reveal active">
+<div class="max-w-4xl">
+<span class="font-label-caps text-label-caps text-white/80 tracking-[0.4em] block mb-4 text-mask">
+<span class="text-slide-up" style="transition-delay: 0.1s;">The Royal Collective '24</span>
+</span>
+<h2 class="font-display-lg text-white leading-none mb-8 text-mask">
+<span class="text-slide-up" style="transition-delay: 0.3s;">REDEFINING HERITAGE</span>
+</h2>
+<div class="text-mask">
+<a class="inline-block bg-white text-primary px-10 py-4 font-label-caps text-label-caps hover:bg-primary hover:text-white transition-all duration-500 uppercase tracking-widest shadow-lg magnetic-btn text-slide-up" href="{{DATA:SCREEN:SCREEN_16}}" style="transition-delay: 0.5s;">Explore Collection</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Collections - Bento Grid -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto reveal active">
+<div class="flex justify-between items-end mb-12">
+<h3 class="font-headline-lg text-headline-lg text-mask">
+<span class="text-slide-up">Trending Collections</span>
+</h3>
+<a class="font-label-caps text-label-caps border-b border-primary pb-1 hover:text-on-tertiary-container transition-colors link-underline" href="{{DATA:SCREEN:SCREEN_16}}">View All</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-bento-gap h-[800px] reveal-stagger active">
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-black ken-burns-container">
+<img alt="Varanasi Velvets" class="w-full h-full object-cover opacity-90 transition-opacity duration-700 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4pL0ljWZKfzyyy9PoonxgYbUMdHM_LnhdBjUlrYz8vktrZHyrJY85-RVIn3H7QSFFKk8dp94GCO2c7XiZsiQLGcPh4p1LWz4lKnL8FTzFdBV_3Qc51reaXx7m9OQwJ9ADsPXTU8Z7Urq7U5dQ7aQRbt6hoSPAQzb0tFyw9jQ77U7Alv24RtQQhHGgQthFIPCjanckYL6DaoX22ncf0nz9OA6KgkBXcOcy_naEm3IVHB2Z8pPG2klNK9Y1BY-kfqZZZprhdyihcvos">
+<div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500"></div>
+<div class="absolute bottom-8 left-8 transform group-hover:translate-x-4 transition-transform duration-700">
+<p class="font-label-caps text-label-caps text-white mb-2 opacity-80">Editor's Choice</p>
+<h4 class="font-headline-md text-white">Varanasi Velvets</h4>
+</div>
+</div>
+<div class="md:col-span-2 md:row-span-1 relative group overflow-hidden bg-black ken-burns-container">
+<img alt="The Craft Series" class="w-full h-full object-cover opacity-90 transition-opacity duration-700 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXh4QVCQ2ii22CfDsYvmNquEYKBhvWj4HKKKjn6iFv_Mb7o-alkx-MLZ-E6FKTi8idMr55U7Bb6VpTqHjXSLbieeytiIZyaJ2nVgkvbX9EH4698cEAy237HPNupPZvsH-6I9njRXY2wzkd0-UZlQfkvDuq7njs4b0ZtXerwshf2MNoySaS-dUm_GxOTqcaGoGH_4T5CTRTdjMwITUl-eY72sym3a129_6A4xjM2Lr6BVi7iSHucPHxtHLgn7oURddr0qnNyMkkVUgm">
+<div class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-500"></div>
+<div class="absolute bottom-6 left-6 text-white transform group-hover:translate-x-4 transition-transform duration-700">
+<h4 class="font-headline-md text-white text-2xl">The Craft Series</h4>
+</div>
+</div>
+<div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-black ken-burns-container">
+<img alt="Loom Denim" class="w-full h-full object-cover opacity-90 transition-opacity duration-700 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDm_5WVRgJTmfVFiX9B_ejuCp9aZ1gJ2LJPXvHci9JTsE6FDUrkXtlIV6G1B4KHIEBYME_pdGwNBHIOAAL8wOo-Rn0nMM_TOCr9lpOMbhWX2sgDfkFWjmnI1bbXtokMNRU2KsQh6CL2RKcbVVel1aiuoehKzQVoEQbsrubr8nHDb8eMagnmvL6Rz3ZJ7gol_zIQ0SO14gtST6j0b8nBAg3IO7ZHjel3PzVo9cpwiCWktqJvEMFvd7NoqesfVNGNuPEklz6gn2R-TQsQ">
+<div class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-500"></div>
+<div class="absolute bottom-6 left-6 text-white transform group-hover:translate-x-4 transition-transform duration-700">
+<h4 class="font-label-caps text-label-caps">Loom Denim</h4>
+</div>
+</div>
+<div class="md:col-span-1 md:row-span-1 relative group overflow-hidden bg-black ken-burns-container">
+<img alt="Curated Accents" class="w-full h-full object-cover opacity-90 transition-opacity duration-700 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4oz6lEg64wNApmNVbV8I_QS3AHniGMASrPa006FFp2OeVkdfrVuF85HafzBRKaIxGdqSQtUDImOOTuvyYGGEZp-fD3cnxLlANmS9rj5SN1F_er-nJ2gSu3Uvr2byxV-4PYkQHkKlUseexqWdvF-9WbTNhSFNXnrKLbgJHBogk7XnjRp0BrMLzHfyhXx6Y6BmcL29RcD9TGtUZ-I5rQrvOJ_UGiS4D-V0lt4OPiv6Osyc6n0BXNvo4ARxSXXoWMTs62G14SWx9EyaQ">
+<div class="absolute inset-0 bg-black/5 group-hover:bg-black/20 transition-colors duration-500"></div>
+<div class="absolute bottom-6 left-6 text-white transform group-hover:translate-x-4 transition-transform duration-700">
+<h4 class="font-label-caps text-label-caps">Curated Accents</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Story Teaser -->
+<section class="bg-surface-container py-24 reveal active">
+<div class="px-margin-desktop max-w-4xl mx-auto text-center">
+<span class="font-label-caps text-label-caps text-primary/60 tracking-[0.4em] block mb-8 uppercase text-mask">
+<span class="text-slide-up">A Legacy Reimagined</span>
+</span>
+<h3 class="font-headline-lg text-headline-lg mb-8 italic text-mask">
+<span class="text-slide-up">"We translate the ancient looms of Kashi into the architectural silhouettes of tomorrow."</span>
+</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 reveal">VARANASI MODERN is more than a label; it's a movement. We preserve centuries-old hand-weaving techniques while challenging the norms of contemporary global fashion through minimalist geometry and radical simplicity.</p>
+<a class="font-label-caps text-label-caps border-b-2 border-primary pb-2 hover:opacity-60 transition-opacity link-underline inline-block" href="{{DATA:SCREEN:SCREEN_15}}">Discover Our Heritage</a>
+</div>
+</section>
+<!-- Featured Categories -->
+<section class="py-24 px-margin-desktop max-w-container-max mx-auto reveal">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter reveal-stagger">
+<div class="group cursor-pointer ken-burns-container">
+<div class="aspect-[3/4] overflow-hidden mb-6 relative">
+<img alt="Women" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL5ZZBqf-BKksLhCxx5O7cVMfWaR3s_1vE7EJmE5hWj3SKQ78MZremIuWWxRtzXfzX7R7UMdC1cvis4WlfYHIxr7P_b56SKx3RQ_13Fo33hLNCDiRlohXV3Q_gnuRubPC8HUiT7NxLxSnE4it78rsTYr5wi2y2K2pWcS2xX7SHxeYYYZT6IL0SQLjEQRF0om3yhbya7ENQjW7T8F2a-0sMICcVfZxR6te7aDDcdCRejKwnOv5VOgQiUov6tVCTUbchw8EkHR4rIksz">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500"></div>
+</div>
+<h4 class="font-headline-md text-2xl text-center group-hover:italic transition-all duration-500">Women</h4>
+</div>
+<div class="group cursor-pointer ken-burns-container">
+<div class="aspect-[3/4] overflow-hidden mb-6 relative">
+<img alt="Men" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRoGCrArYmYV2jOaJSr_mOfnhBswi4QNNFCbLYYmMmDMNX6v7azZbEmlsOfZS_Vg-9aaLDCFwA8p3NnAb9p4GOAq_C4twIWgf5wDNYTOHynNEUv64-9xZY49obccMZWsghO-SY8eQkm8xRSwl5zmVDZXvvyLnPHOk5WJe1nLXaCV7YPZ3OFBzCYqz2ObcgZ-R_qMlaYltWoOec5_NTsmM-eiB1JPTTLyBsoT2LkXQpyGpDp0UlKB5gkZUFmGkpM7NS-GUkHUQ_B0P6">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500"></div>
+</div>
+<h4 class="font-headline-md text-2xl text-center group-hover:italic transition-all duration-500">Men</h4>
+</div>
+<div class="group cursor-pointer ken-burns-container">
+<div class="aspect-[3/4] overflow-hidden mb-6 relative">
+<img alt="Streetwear" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvuEJJmNOhhqq_H8tviEdBy0803w4dGTu9_ERiOykGcWM-BBUnAc34pZNXmdJiDN0QG3wsKN5uIytrYjsqIBIWu3rFt5VjSDM_mNwf3fQj5zyLNLPJsyriYWe0LxME4Df4yGTyIw5gGhlkARbqR0h8zccsNEFLj_uVLXml-9GUnDhydHHW9I5WXmutTRhdmBOI5noMwaZ9VXknYZHVujiy0Nd6IuqHNHmJvMNdisVJeBLNdfMD9rp5Z89lhPPegS9Qp5yTEXbZai-w">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500"></div>
+</div>
+<h4 class="font-headline-md text-2xl text-center group-hover:italic transition-all duration-500">Streetwear</h4>
+</div>
+<div class="group cursor-pointer ken-burns-container">
+<div class="aspect-[3/4] overflow-hidden mb-6 relative">
+<img alt="Ethnic Fusion" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACQGr0gBwmDrPu_PKn1AmBDDeSyiYl7g_h4M9R6Etaue8i29T-0qzLwOkW0HfpXX6GFJbl_Bh_0Fi5yB-zDMRc2hylRnZGcIqtDUFoSQapS0SnlG8j2a4QYaIY2Vrd83yCvHTwGTkOH8bc5ht27yxfv13k2DiCXZO3xyxg2MfrmzU7kX32Zd4l55le-e8oXLQHaL1AcexnXyPtdTwU1PJ6fG2sIem-3sC8bVVnHUV3rxvcLOGTJRFypC8O-cE8Gemivi9EZaxp6Sy2">
+<div class="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-500"></div>
+</div>
+<h4 class="font-headline-md text-2xl text-center group-hover:italic transition-all duration-500">Ethnic Fusion</h4>
+</div>
+</div>
+</section>
+<!-- New Arrivals - Horizontal Scroll -->
+<section class="py-24 bg-surface-container-low overflow-hidden reveal">
+<div class="px-margin-desktop max-w-container-max mx-auto mb-12 flex justify-between items-end">
+<h3 class="font-headline-lg text-headline-lg text-mask">
+<span class="text-slide-up">New Arrivals</span>
+</h3>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-500 magnetic-btn">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-500 magnetic-btn">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-gutter overflow-x-auto no-scrollbar px-margin-desktop snap-x reveal-stagger">
+<a class="min-w-[320px] snap-start bg-white shadow-sm block group overflow-hidden ken-burns-container" href="{{DATA:SCREEN:SCREEN_16}}">
+<div class="relative overflow-hidden aspect-[4/5]">
+<img alt="Architectural Linen Shirt" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9XzMAAe_3_dIeUFKU-cgQCvq3iw0RhcRMqj5UvzGmSUe81Ly-V48SbXhaZ_9XYP6bOKu_sm4_P6XUYw1g09Yc2PL33r8090gBTQpBxCXb_c_8sKVv7HDj1PdlDYE07dZXLiNw-StnK5Oxy1oeeCkH4ykqSfgdzpciwQ9Qo7XFFr3O714iyyWcyvZR38vPvc-N-RvCYJd8MQITMebE9CZ-HijWq5dQleFC8heuNVMIqkGXZqZLKHGlLoBI77T1HkwBOhNAQJUHilGD">
+<span class="absolute top-4 left-4 bg-primary text-white px-3 py-1 font-label-caps text-[10px] transform group-hover:translate-x-1 transition-transform">New</span>
+<div class="absolute inset-0 flex items-center justify-center secondary-actions pointer-events-none">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-lg pointer-events-auto hover:bg-primary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</div>
+<div class="w-12 h-12 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-lg pointer-events-auto hover:bg-primary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 transition-colors duration-500 group-hover:bg-surface-container">
+<h5 class="font-label-caps text-label-caps mb-1">Architectural Linen Shirt</h5>
+<p class="font-headline-md text-xl">₹8,900</p>
+</div>
+</a>
+<a class="min-w-[320px] snap-start bg-white shadow-sm block group overflow-hidden ken-burns-container" href="{{DATA:SCREEN:SCREEN_16}}">
+<div class="relative overflow-hidden aspect-[4/5]">
+<img alt="Raw Silk Waistcoat" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ_wrTOw2Rsnod5nY8z9EDGZCyuJgwiWcAiSQhsyxLnP88SLcsyQxIQ0UFq48EwVHihbrwkQQ3mc7bAFY3FanEfQprKef18D1RmC-cRbuBTpk-3eKsnSX2AuieHbhalY5YvQwnAqyvd5fSEnwdwBV7wyu-WQ-UGKpb_ws3Io_UE8NIy4t2HDmGyWrlwCV5Zq8NTL-7mFDKFhyYXwZw6fP93-xZznlxl4fNSk9adLBWpgT3Tvhv0YpOwLy7FH3rO4Pn8zqYgMeADgWD">
+<div class="absolute inset-0 flex items-center justify-center secondary-actions pointer-events-none">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-lg pointer-events-auto hover:bg-primary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</div>
+<div class="w-12 h-12 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-lg pointer-events-auto hover:bg-primary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 transition-colors duration-500 group-hover:bg-surface-container">
+<h5 class="font-label-caps text-label-caps mb-1">Raw Silk Waistcoat</h5>
+<p class="font-headline-md text-xl">₹12,400</p>
+</div>
+</a>
+<a class="min-w-[320px] snap-start bg-white shadow-sm block group overflow-hidden ken-burns-container" href="{{DATA:SCREEN:SCREEN_16}}">
+<div class="relative overflow-hidden aspect-[4/5]">
+<img alt="Kashi Jacquard Overcoat" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdDh9jk7JvKc9baOarjlvbXBKjVZE2bvq_6WBgLTqsoGZlS2BrUBDBS866S5jZiGV70FW7w2fSH_attwIfB663i20Y11h3hxJziz_9O-QQOPE13KYbciLkNOksbzJKfekLSsC_zBv0O4SUV-w5A6Qv5jf_QwXqNXzhdeMOvVrY6tmHptYcdeq_JVHR4tb6Xs3feYGOG5vUj8aoGqAcTR0SF6bYZ0K3WXBTPYE171lh9p89FgwJyxlHZ5YN3ivt5cz9iRVFg_Mgzgj3">
+<div class="absolute inset-0 flex items-center justify-center secondary-actions pointer-events-none">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-lg pointer-events-auto hover:bg-primary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</div>
+<div class="w-12 h-12 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-lg pointer-events-auto hover:bg-primary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 transition-colors duration-500 group-hover:bg-surface-container">
+<h5 class="font-label-caps text-label-caps mb-1">Kashi Jacquard Overcoat</h5>
+<p class="font-headline-md text-xl">₹24,000</p>
+</div>
+</a>
+<a class="min-w-[320px] snap-start bg-white shadow-sm block group overflow-hidden ken-burns-container" href="{{DATA:SCREEN:SCREEN_16}}">
+<div class="relative overflow-hidden aspect-[4/5]">
+<img alt="Loom Pleated Skirt" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwFi5LxOhwlTD4FyEFbVM7cyTKvK-84NI7YVAJgQKzqhqOnXL_TWJSyxS3Y8aHAZidJJSpAKjBzEDwdbfh3SDdI5IU_WZOdsGetZFaSA9ZlVI4iXC5iebqZoH3JBhSaqfZzy0Z-nBNdQuprBF7fX94GqRiNK6gpAxGLqWjd3oh9y4Z-FNKODSibUSqxGqi8QqtjbSrMclDQlvgZYwDzBORe06i5_JlwEJNjHsHfsJhVikovmHSXqv0hwuwVEDIHvftYsLY7r7wrr_I">
+<div class="absolute inset-0 flex items-center justify-center secondary-actions pointer-events-none">
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-lg pointer-events-auto hover:bg-primary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="favorite">favorite</span>
+</div>
+<div class="w-12 h-12 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-primary shadow-lg pointer-events-auto hover:bg-primary hover:text-white transition-colors duration-300">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility">visibility</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 transition-colors duration-500 group-hover:bg-surface-container">
+<h5 class="font-label-caps text-label-caps mb-1">Loom Pleated Skirt</h5>
+<p class="font-headline-md text-xl">₹15,600</p>
+</div>
+</a>
+</div>
+</section>
+<!-- Seasonal Offers - Glassmorphism -->
+<section class="py-24 px-margin-desktop relative h-[600px] flex items-center justify-center overflow-hidden reveal">
+<img alt="Varanasi sunrise" class="absolute inset-0 w-full h-full object-cover scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr5EvnnGTRVdV0rrdusTtNWa-cOdEhEnybDnOoHolvaKPvLqBWB99h_kw4pEWFmUGx11eAYRrcy0Seax5wXOSHkQt9YsbXJuHOF5UagWtTflJkXTCDM68xFZSMAVuR2VQps8rhnPYDTw5rjdNDZBtUiXUdpCWLqi4MRXobgB8RZ3aN5uGo5-aOx7g1gvJSxgWeNzmh05WZlfA-t7D0zrdRsYTj2-Jw1Fu_PNzELOyS90Y7n4L_SJl5vsh9c65FN9s17qu_HHy1vfGH">
+<div class="glass p-12 md:p-24 max-w-2xl text-center relative z-10 border border-white/30 shadow-2xl reveal">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.2em] block mb-4 uppercase text-mask">
+<span class="text-slide-up">Limited Edition</span>
+</span>
+<h3 class="font-headline-lg text-headline-lg mb-6 text-mask">
+<span class="text-slide-up">The Winter Archive</span>
+</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 reveal">Exclusive access to our vault of hand-woven outerwear. Limited pieces available for a short season.</p>
+<div class="flex flex-col md:flex-row gap-4 justify-center reveal">
+<button class="btn-hover-shift bg-primary text-white px-10 py-4 font-label-caps text-label-caps hover:text-white transition-all uppercase tracking-widest magnetic-btn">Explore Archive</button>
+<button class="border border-primary text-primary px-10 py-4 font-label-caps text-label-caps hover:bg-primary hover:text-white transition-all duration-500 uppercase tracking-widest magnetic-btn">View Lookbook</button>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-24 bg-surface reveal">
+<div class="px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="reveal">
+<h3 class="font-headline-lg text-headline-lg mb-4 text-mask">
+<span class="text-slide-up">Join the Collective</span>
+</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Stay updated on new collections, artisan stories, and exclusive event invitations.</p>
+</div>
+<div class="reveal">
+<form class="flex flex-col gap-4">
+<div class="relative group">
+<input class="w-full bg-transparent border-t-0 border-l-0 border-r-0 border-b-2 border-primary py-4 px-0 focus:ring-0 focus:border-tertiary-fixed-dim transition-all duration-500 placeholder:text-on-surface-variant/40 font-body-md" placeholder="Email Address" type="email">
+<div class="absolute bottom-0 left-0 h-0.5 w-0 bg-tertiary-fixed-dim group-focus-within:w-full transition-all duration-500"></div>
+</div>
+<button class="bg-primary text-white py-4 font-label-caps text-label-caps hover:bg-tertiary transition-all duration-500 uppercase w-full md:w-max px-12 ml-auto tracking-widest shadow-lg magnetic-btn">Subscribe</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest border-t border-outline-variant reveal">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-margin-desktop max-w-container-max mx-auto">
+<div class="md:col-span-1 reveal">
+<img alt="VM Logo" class="w-auto mb-6 object-contain h-20" src="https://lh3.googleusercontent.com/aida/ADBb0ugN8C5R02j0HvFN_V87py5eDEuu3lDBEE2HRl37NJqSh0yAHgauSos1TKgHnazGhTSxrnvlbtZ5YRfC4lpiFRPndIVmSD1MUAo_l_7FgaLJ1jbLQCSuXuay0YMolREsGUlOxheVZBIqeKm0wFycUXnrMlNvcUJTc5NNNIUr1nK11bux2mYeksXBCl5eACmHikAYyqccsHPhLaykbU8F06UT2vLCmHVyD7pZFB3bb4COKAh9GYq_tNhsSXc">
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Contemporary luxury, rooted in the heritage of Varanasi. Crafted in India for the world.</p>
+</div>
+<div class="reveal" style="transition-delay: 0.1s">
+<h6 class="font-label-caps text-label-caps text-primary mb-6 uppercase tracking-[0.2em]">The Brand</h6>
+<nav class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 link-underline w-fit" href="{{DATA:SCREEN:SCREEN_15}}">Our Story</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 link-underline w-fit" href="{{DATA:SCREEN:SCREEN_15}}">Sustainability</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 link-underline w-fit" href="{{DATA:SCREEN:SCREEN_5}}">Stores</a>
+</nav>
+</div>
+<div class="reveal" style="transition-delay: 0.2s">
+<h6 class="font-label-caps text-label-caps text-primary mb-6 uppercase tracking-[0.2em]">Service</h6>
+<nav class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 link-underline w-fit" href="{{DATA:SCREEN:SCREEN_16}}">Shipping &amp; Returns</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 link-underline w-fit" href="{{DATA:SCREEN:SCREEN_5}}">Contact</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors duration-300 link-underline w-fit" href="{{DATA:SCREEN:SCREEN_15}}">Privacy Policy</a>
+</nav>
+</div>
+<div class="reveal" style="transition-delay: 0.3s">
+<h6 class="font-label-caps text-label-caps text-primary mb-6 uppercase tracking-[0.2em]">Follow</h6>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-all duration-300 hover:-translate-y-1 link-underline" href="https://instagram.com">Instagram</a>
+<a class="hover:text-primary transition-all duration-300 hover:-translate-y-1 link-underline" href="https://pinterest.com">Pinterest</a>
+<a class="hover:text-primary transition-all duration-300 hover:-translate-y-1 link-underline" href="https://twitter.com">Twitter</a>
+</div>
+</div>
+</div>
+<div class="px-margin-desktop py-8 border-t border-outline-variant/10 max-w-container-max mx-auto">
+<p class="font-label-caps text-[10px] text-on-surface-variant text-center opacity-60 uppercase tracking-widest">© 2024 VARANASI MODERN. CRAFTED IN INDIA FOR THE WORLD.</p>
+</div>
+</footer>
+<script>
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    document.querySelectorAll('.magnetic-btn').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = '';
+        });
+    });
+
+    window.addEventListener('load', () => {
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                el.classList.add('active');
+            }
+        });
+    });
+</script>
+
+
+</body></html>
